@@ -43,7 +43,7 @@ export default function Firebase() {
 
             <button
               onClick={() => logout()}
-              className="bg-blue p-2 rounded-lg text-white font-bold transition-all hover:scale-105"
+              className="bg-blue p-2 rounded-lg text-white font-bold transition-all hover:scale-105 mb-10 md:mb-0"
             >
               로그아웃
             </button>
