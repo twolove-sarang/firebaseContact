@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import React from 'react';
+import Firebase from './firebaseData/Firebase';
+import { UserContextProvider } from './firebaseData/firebaseUserContext/userContext';
+import TitleSection from './firebaseData/firebaseComponent/TitleSection';
 
-function App() {
+export default function App() {
+  const queryClient = new QueryClient();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <UserContextProvider value>
+        <div className="md:ml-20">
+          <TitleSection />
+          <Firebase />
+        </div>
+      </UserContextProvider>
+    </QueryClientProvider>
   );
 }
-
-export default App;
